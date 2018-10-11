@@ -3,7 +3,6 @@ version: "2"
 services:
     api:
         container_name: api
-        # build: docker/php/Dockerfile
         image: gamifier/api:v0.9
         volumes:
             - ./api:/var/www
@@ -17,7 +16,6 @@ services:
 
     nginx:
         container_name: nginx
-        # build: "docker/nginx/Dockerfile"
         image: gamifier/nginx:v0.9
         ports: 
             - "80:80"
@@ -28,7 +26,5 @@ services:
                     - "localhost"
         volumes_from:
             - "api"
-        # depends_on: 
-            # - "api"
 
         
