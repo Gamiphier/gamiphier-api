@@ -52,3 +52,5 @@ docker-compose.yml
 
 # Editors
 .vscode
+api-command/bin
+api-query/bin
