@@ -1,34 +1,39 @@
 version: "2"
 
 services:
-    api:
-        container_name: api
-        # build: docker/php/Dockerfile
-        image: gamifier/api:v0.9
+    api-command:
+        container_name: api-command
+        image: gamiphier/php-api-command:v1.0
         volumes:
-            - ./api:/var/www
-            - ./api/cache:/var/www/cache
-        ports:
-            - "9000:9000"
+            - ./api-command:/var/www
+            - ./api-command/cache:/var/www/cache
+
+    api-query:
+        container_name: api-query
+        image: gamiphier/php-api-query:v1.0
+        volumes:
+            - ./api-query:/var/www
+            - ./api-query/cache:/var/www/cache
 
     redis:
         container_name: redis
         image: "redis:alpine"
 
+    mongo:
+        container_name: mongo
+        image: "mongo:4"
+ 
     nginx:
         container_name: nginx
-        # build: "docker/nginx/Dockerfile"
-        image: gamifier/nginx:v0.9
+        image: gamiphier/nginx:v1.0
         ports: 
             - "80:80"
         networks: 
             default:
                 aliases: 
-                    - "dev.api.gamifier.fr"
+                    - "dev.api-command.gamiphier.fr"
+                    - "dev.api-query.gamiphier.fr"
                     - "localhost"
         volumes_from:
-            - "api"
-        # depends_on: 
-            # - "api"
-
-        
+            - "api-command"
+            - "api-query"
