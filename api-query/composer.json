@@ -6,15 +6,17 @@
         "ext-ctype": "*",
         "ext-iconv": "*",
         "friendsofphp/php-cs-fixer": "^2.13",
-        "php-amqplib/rabbitmq-bundle": "^1.14",
         "predis/predis": "^1.1",
         "sensio/framework-extra-bundle": "^5.2",
         "snc/redis-bundle": "^2.1",
         "symfony/console": "*",
+        "symfony/event-dispatcher": "*",
         "symfony/flex": "^1.1",
         "symfony/framework-bundle": "*",
+        "symfony/messenger": "*",
         "symfony/monolog-bundle": "^3.3",
         "symfony/security-bundle": "*",
+        "symfony/serializer-pack": "^1.0",
         "symfony/yaml": "*"
     },
     "require-dev": {

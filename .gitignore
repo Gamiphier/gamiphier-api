@@ -1,39 +1,62 @@
 # Cache and logs (Symfony2)
-/app/cache/*
-/app/logs/*
-!app/cache/.gitkeep
-!app/logs/.gitkeep
+/api-command/app/cache/*
+/api-command/app/logs/*
+!api-command/app/cache/.gitkeep
+!api-command/app/logs/.gitkeep
+/api-query/app/cache/*
+/api-query/app/logs/*
+!api-query/app/cache/.gitkeep
+!api-query/app/logs/.gitkeep
 
 # Email spool folder
-/app/spool/*
+/api-command/app/spool/*
+/api-query/app/spool/*
 
 # Cache, session files and logs (Symfony3)
-/var/cache/*
-/var/logs/*
-/var/sessions/*
-!var/cache/.gitkeep
-!var/logs/.gitkeep
-!var/sessions/.gitkeep
+/api-command/var/cache/*
+/api-command/var/logs/*
+/api-command/var/sessions/*
+!api-command/var/cache/.gitkeep
+!api-command/var/logs/.gitkeep
+!api-command/var/sessions/.gitkeep
+/api-query/var/cache/*
+/api-query/var/logs/*
+/api-query/var/sessions/*
+!api-query/var/cache/.gitkeep
+!api-query/var/logs/.gitkeep
+!api-query/var/sessions/.gitkeep
 
 # Parameters
-/app/config/parameters.yml
-/app/config/parameters.ini
+/api-command/app/config/parameters.yml
+/api-command/app/config/parameters.ini
+/api-query/app/config/parameters.yml
+/api-query/app/config/parameters.ini
 
 # Managed by Composer
-/app/bootstrap.php.cache
-/var/bootstrap.php.cache
-/bin/*
-!bin/console
-!bin/symfony_requirements
-/vendor/
+/api-command/app/bootstrap.php.cache
+/api-command/var/bootstrap.php.cache
+/api-command/bin/*
+!api-command/bin/console
+!api-command/bin/symfony_requirements
+/api-command/vendor/
+/api-query/app/bootstrap.php.cache
+/api-query/var/bootstrap.php.cache
+/api-query/bin/*
+!api-query/bin/console
+!api-query/bin/symfony_requirements
+/api-query/vendor/
 
 # Assets and user uploads
-/web/bundles/
-/web/uploads/
+/api-command/web/bundles/
+/api-command/web/uploads/
+/api-query/web/bundles/
+/api-query/web/uploads/
 
 # PHPUnit
-/app/phpunit.xml
-/phpunit.xml
+/api-command/app/phpunit.xml
+/api-command/phpunit.xml
+/api-query/app/phpunit.xml
+/api-query/phpunit.xml
 
 # Build data
 /build/
@@ -52,5 +75,3 @@ docker-compose.yml
 
 # Editors
 .vscode
-api-command/bin
-api-query/bin
