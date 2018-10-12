@@ -1,10 +1,12 @@
 VERSION = 1.0
-API_COMMAND = docker exec -ti $$(docker-compose ps -q api-command)
-API_QUERY = docker exec -ti $$(docker-compose ps -q api-query)
+API_COMMAND = docker exec -u 1000 -ti $$(docker-compose ps -q api-command)
+API_QUERY = docker exec -u 1000 -ti $$(docker-compose ps -q api-query)
 NGINX = docker exec -ti $$(docker-compose ps -q nginx)
+REDIS = docker exec -ti $$(docker-compose ps -q redis)
+RABBITMQ = docker exec -ti $$(docker-compose ps -q rabbitmq)
 CD_API_COMMAND = cd /var/www &&
 CD_API_QUERY = cd /var/www &&
-CS_OPTION = 
+CS_OPTION =
 
 # HELP
 # This will output the help for each task
@@ -14,7 +16,7 @@ CS_OPTION =
 help: ## This help.
 	@awk 'BEGIN {FS = ":.*?## "} /^[a-zA-Z_-]+:.*?## / {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}' $(MAKEFILE_LIST)
 
-.DEFAULT_GOAL := help 
+.DEFAULT_GOAL := help
 
 docker-build-and-push-all: docker-build-all docker-push-all ## build and push all docker images
 
@@ -54,6 +56,14 @@ bash-api-query:
 nginx-bash: bash-nginx ## [nginx] bash
 bash-nginx:
 	$(NGINX) sh
+
+rabbitmq-bash: bash-rabbitmq ## [rabbitmq] bash
+bash-rabbitmq:
+	$(RABBITMQ) bash
+
+redis-bash: bash-redis ## [redis] bash
+bash-nginx:
+	$(REDIS) bash
 
 ## PHPUNIT
 api-command-phpunit: ## [api-command] phpunit
@@ -107,9 +117,12 @@ api-query-cs: ## [api-query] check style
 	$(API_QUERY) vendor/bin/php-cs-fixer fix tests --verbose --diff --rules=@Symfony,object_operator_without_whitespace,-yoda_style $(CS_OPTION) || true
 
 ######### TOOLS #########
-up: ## docker-compose up
-	docker-compose pull
+up: pull compose-up ps ## docker-compose up
+compose-up:
 	docker-compose up -d
+
+pull: ## docker-compose pull
+	docker-compose pull
 
 down: ## docker-compose down
 	docker-compose down
