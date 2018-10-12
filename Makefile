@@ -119,3 +119,6 @@ start: ## docker-compose start
 
 stop: ## docker-compose stop
 	docker-compose stop
+
+ps:	## docker-compose ps
+	docker-compose ps
