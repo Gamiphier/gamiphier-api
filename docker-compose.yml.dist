@@ -7,6 +7,8 @@ services:
         volumes:
             - ./api-command:/var/www
             - ./api-command/cache:/var/www/cache
+        depends_on:
+            - rabbitmq
 
     api-query:
         container_name: api-query
@@ -14,6 +16,8 @@ services:
         volumes:
             - ./api-query:/var/www
             - ./api-query/cache:/var/www/cache
+        depends_on:
+            - rabbitmq
 
     redis:
         container_name: redis
@@ -37,3 +41,10 @@ services:
         volumes_from:
             - "api-command"
             - "api-query"
+
+    rabbitmq:
+        container_name: rabbitmq
+        image: rabbitmq:3.7.8-management
+        ports:
+            - "15672:15672"
+            - "5672:5672"
