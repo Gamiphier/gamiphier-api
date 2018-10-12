@@ -49,3 +49,6 @@
 
 # Docker
 docker-compose.yml
+
+# Editors
+.vscode

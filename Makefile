@@ -1,4 +1,10 @@
 VERSION = 1.0
+API_COMMAND = docker exec -ti $$(docker-compose ps -q api-command)
+API_QUERY = docker exec -ti $$(docker-compose ps -q api-query)
+NGINX = docker exec -ti $$(docker-compose ps -q nginx)
+CD_API_COMMAND = cd /var/www &&
+CD_API_QUERY = cd /var/www &&
+CS_OPTION = 
 
 # HELP
 # This will output the help for each task
@@ -36,3 +42,80 @@ docker-push-api-query: ## push the docker image for api-query
 docker-push-nginx: ## push the docker image for nginx
 	docker push gamiphier/nginx:v$(VERSION)
 
+## BASH
+api-command-bash: bash-api-command ## [api-command] bash
+bash-api-command:
+	$(API_COMMAND) bash
+
+api-query-bash: bash-api-query ## [api-query] bash
+bash-api-query:
+	$(API_QUERY) bash
+
+nginx-bash: bash-nginx ## [nginx] bash
+bash-nginx:
+	$(NGINX) sh
+
+## PHPUNIT
+api-command-phpunit: ## [api-command] phpunit
+	$(API_COMMAND) bin/phpunit --colors
+
+api-query-phpunit: ## [api-query] phpunit
+	$(API_QUERY) bin/phpunit --colors
+
+## CACHE & LOGS
+api-command-clean-cache-and-logs: api-command-clean-cache api-command-clean-logs ## [api-command] clear the cache & the logs
+api-query-clean-cache-and-logs: api-query-clean-cache api-query-clean-logs ## [api-query] clear the cache & the logs
+
+api-command-clean-cache: ## [api-command] clear the cache
+	$(API_COMMAND) sh -c "$(CD_API) mkdir -p var/cache && rm -rf var/cache/* && chmod 777 var/cache || true"
+
+api-command-clean-logs: ## [api-command] clear the logs
+	$(API_COMMAND) sh -c "$(CD_API) mkdir -p var/logs && rm -rf var/logs/* && chmod 777 var/logs || true"
+
+api-command-cache-clear: ## [api-command] console c:c
+	$(API_COMMAND) bin/console cache:clear --env=$(ENV) --no-debug --ansi || true
+
+api-query-clean-cache: ## [api-query] clear the cache
+	$(API_QUERY) sh -c "$(CD_API) mkdir -p var/cache && rm -rf var/cache/* && chmod 777 var/cache || true"
+
+api-query-clean-logs: ## [api-query] clear the logs
+	$(API_QUERY) sh -c "$(CD_API) mkdir -p var/logs && rm -rf var/logs/* && chmod 777 var/logs || true"
+
+api-query-cache-clear: ## [api-query] console c:c
+	$(API_QUERY) bin/console cache:clear --env=$(ENV) --no-debug --ansi || true
+
+## COMPOSER
+api-command-composer-install: ## [api-command] composer install
+	@$(API_COMMAND) composer install --ansi --no-interaction || true
+
+api-command-composer-update: ## [api-command] composer update
+	@$(API_COMMAND) php -d memory_limit=-1 /usr/local/bin/composer update --ansi --no-interaction || true
+
+api-query-composer-install: ## [api-query] composer install
+	@$(API_QUERY) composer install --ansi --no-interaction || true
+
+api-query-composer-update: ## [api-query] composer update
+	@$(API_QUERY) php -d memory_limit=-1 /usr/local/bin/composer update --ansi --no-interaction || true
+
+## PHP-CS-FIXER
+api-command-cs: ## [api-command] check style
+	$(API_COMMAND) vendor/bin/php-cs-fixer fix src   --verbose --diff --rules=@Symfony,object_operator_without_whitespace,-yoda_style $(CS_OPTION) || true
+	$(API_COMMAND) vendor/bin/php-cs-fixer fix tests --verbose --diff --rules=@Symfony,object_operator_without_whitespace,-yoda_style $(CS_OPTION) || true
+
+api-query-cs: ## [api-query] check style
+	$(API_QUERY) vendor/bin/php-cs-fixer fix src   --verbose --diff --rules=@Symfony,object_operator_without_whitespace,-yoda_style $(CS_OPTION) || true
+	$(API_QUERY) vendor/bin/php-cs-fixer fix tests --verbose --diff --rules=@Symfony,object_operator_without_whitespace,-yoda_style $(CS_OPTION) || true
+
+######### TOOLS #########
+up: ## docker-compose up
+	docker-compose pull
+	docker-compose up -d
+
+down: ## docker-compose down
+	docker-compose down
+
+start: ## docker-compose start
+	docker-compose start
+
+stop: ## docker-compose stop
+	docker-compose stop
