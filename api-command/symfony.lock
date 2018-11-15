@@ -1,4 +1,7 @@
 {
+    "alcaeus/mongo-php-adapter": {
+        "version": "1.1.5"
+    },
     "composer/ca-bundle": {
         "version": "1.1.2"
     },
@@ -35,8 +38,26 @@
     "doctrine/inflector": {
         "version": "v1.3.0"
     },
+    "doctrine/instantiator": {
+        "version": "1.1.0"
+    },
     "doctrine/lexer": {
         "version": "v1.0.1"
+    },
+    "doctrine/mongodb": {
+        "version": "1.6.3"
+    },
+    "doctrine/mongodb-odm": {
+        "version": "1.2.5"
+    },
+    "doctrine/mongodb-odm-bundle": {
+        "version": "3.3",
+        "recipe": {
+            "repo": "github.com/symfony/recipes-contrib",
+            "branch": "master",
+            "version": "3.3",
+            "ref": "e1ee362a520ff9e3e7c38fb5399499427ed91314"
+        }
     },
     "doctrine/persistence": {
         "version": "v1.0.1"
@@ -61,6 +82,9 @@
     },
     "league/oauth2-server": {
         "version": "7.3.0"
+    },
+    "mongodb/mongodb": {
+        "version": "1.4.2"
     },
     "monolog/monolog": {
         "version": "1.23.0"
@@ -142,6 +166,9 @@
     },
     "symfony/dependency-injection": {
         "version": "v4.1.4"
+    },
+    "symfony/doctrine-bridge": {
+        "version": "v4.1.7"
     },
     "symfony/dotenv": {
         "version": "v4.1.4"
