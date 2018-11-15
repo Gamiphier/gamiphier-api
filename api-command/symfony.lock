@@ -53,20 +53,17 @@
     "monolog/monolog": {
         "version": "1.23.0"
     },
-    "php-amqplib/php-amqplib": {
-        "version": "v2.7.3"
-    },
-    "php-amqplib/rabbitmq-bundle": {
-        "version": "1.12",
-        "recipe": {
-            "repo": "github.com/symfony/recipes-contrib",
-            "branch": "master",
-            "version": "1.12",
-            "ref": "ce3ca2e4577270c4f518539aa6b9e878998fcfef"
-        }
-    },
     "php-cs-fixer/diff": {
         "version": "v1.3.0"
+    },
+    "phpdocumentor/reflection-common": {
+        "version": "1.0.1"
+    },
+    "phpdocumentor/reflection-docblock": {
+        "version": "4.3.0"
+    },
+    "phpdocumentor/type-resolver": {
+        "version": "0.4.0"
     },
     "predis/predis": {
         "version": "v1.1.1"
@@ -170,6 +167,15 @@
     "symfony/inflector": {
         "version": "v4.1.6"
     },
+    "symfony/messenger": {
+        "version": "4.1",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "master",
+            "version": "4.1",
+            "ref": "f11dfa18618a8a5dd853ea3a302db2e0557e031c"
+        }
+    },
     "symfony/monolog-bridge": {
         "version": "v4.1.6"
     },
@@ -206,6 +212,9 @@
     "symfony/property-access": {
         "version": "v4.1.6"
     },
+    "symfony/property-info": {
+        "version": "v4.1.6"
+    },
     "symfony/routing": {
         "version": "4.0",
         "recipe": {
@@ -227,10 +236,19 @@
             "ref": "f8a63faa0d9521526499c0a8f403c9964ecb0527"
         }
     },
+    "symfony/serializer": {
+        "version": "v4.1.6"
+    },
+    "symfony/serializer-pack": {
+        "version": "v1.0.1"
+    },
     "symfony/stopwatch": {
         "version": "v4.1.6"
     },
     "symfony/yaml": {
         "version": "v4.1.4"
+    },
+    "webmozart/assert": {
+        "version": "1.3.0"
     }
 }
