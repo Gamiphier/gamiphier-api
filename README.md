@@ -17,16 +17,18 @@ Based on the CQRS specification.
 
     git clone git@github.com:Gamiphier/gamiphier-api.git
     cd gamiphier-api
+
     make up
     make composer-install-api-command
-    make composer-install-api-query
     make composer-diagnose-api-command
+
+    make composer-install-api-query
     make composer-diagnose-api-query
 
 ## OAuthV2 Server
 
-https://oauth2.thephpleague.com/
-https://www.thinktocode.com/2018/10/18/league-oauth-2-0-server-with-symfony-introduction/
+* https://oauth2.thephpleague.com/
+* https://www.thinktocode.com/2018/10/18/league-oauth-2-0-server-with-symfony-introduction/
 
 
 -----------
