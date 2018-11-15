@@ -6,6 +6,7 @@
         "ext-ctype": "*",
         "ext-iconv": "*",
         "friendsofphp/php-cs-fixer": "^2.13",
+        "league/oauth2-server": "^7.3",
         "predis/predis": "^1.1",
         "sensio/framework-extra-bundle": "^5.2",
         "snc/redis-bundle": "^2.1",
