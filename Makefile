@@ -102,6 +102,12 @@ composer-install-api-query: ## [api-query] composer install
 composer-update-api-query: ## [api-query] composer update
 	@$(API_QUERY) php -d memory_limit=-1 /usr/local/bin/composer update --ansi --no-interaction || true
 
+composer-diagnose-api-command: ## [api-command] composer diagnose
+	@$(API_COMMAND) composer diagnose --ansi --no-interaction || true
+
+composer-diagnose-api-query: ## [api-query] composer diagnose
+	@$(API_QUERY) composer diagnose --ansi --no-interaction || true
+
 ## PHP-CS-FIXER
 cs-api-command: ## [api-command] check style
 	$(API_COMMAND) vendor/bin/php-cs-fixer fix src   --verbose --diff --rules=@Symfony,object_operator_without_whitespace,-yoda_style $(CS_OPTION) || true

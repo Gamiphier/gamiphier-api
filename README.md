@@ -20,6 +20,8 @@ Based on the CQRS specification.
     make up
     make composer-install-api-command
     make composer-install-api-query
+    make composer-diagnose-api-command
+    make composer-diagnose-api-query
 
 ## OAuthV2 Server
 
