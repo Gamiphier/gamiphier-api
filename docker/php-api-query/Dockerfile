@@ -11,6 +11,7 @@ RUN apt-get update && \
 # Install PECL extensions
 RUN pecl install xdebug && docker-php-ext-enable xdebug && \
     pecl install channel://pecl.php.net/redis-3.1.6 && docker-php-ext-enable redis && \
+    pecl install mongodb && docker-php-ext-enable mongodb && \
     pecl install apcu  && docker-php-ext-enable apcu
 
 RUN docker-php-ext-install \

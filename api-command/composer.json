@@ -5,6 +5,8 @@
         "php": "^7.1.3",
         "ext-ctype": "*",
         "ext-iconv": "*",
+        "alcaeus/mongo-php-adapter": "^1.1",
+        "doctrine/mongodb-odm-bundle": "^3.5",
         "friendsofphp/php-cs-fixer": "^2.13",
         "league/oauth2-server": "^7.3",
         "predis/predis": "^1.1",
@@ -23,14 +25,16 @@
         "symfony/dotenv": "*",
         "symfony/monolog-bundle": "^3.3",
         "symfony/phpunit-bridge": "*",
-        "symfony/security-bundle": "*",
-        "symfony/yaml": "*"
+        "symfony/security-bundle": "*"
     },
     "config": {
         "preferred-install": {
             "*": "dist"
         },
-        "sort-packages": true
+        "sort-packages": true,
+        "platform": {
+            "ext-mongo": "1.6.16"
+        }
     },
     "autoload": {
         "psr-4": {
