@@ -1,0 +1,4 @@
+github.com/filipovi/rabbitmq v0.0.0-20181120101231-6bf8a91b0571 h1:zhzJ6BJ7aFQ+Kdn+DTRPc7DOjPa4jFJzsQPfbFHM4eQ=
+github.com/filipovi/rabbitmq v0.0.0-20181120101231-6bf8a91b0571/go.mod h1:3Mo0kKf5j/up+/BIgzMAZWilGfYOzwLn9asY4QN/zZg=
+github.com/streadway/amqp v0.0.0-20180528204448-e5adc2ada8b8 h1:l6epF6yBwuejBfhGkM5m8VSNM/QAm7ApGyH35ehA7eQ=
+github.com/streadway/amqp v0.0.0-20180528204448-e5adc2ada8b8/go.mod h1:1WNBiOZtZQLpVAyu0iTduoJL9hEsMloAK5XWrtW0xdY=

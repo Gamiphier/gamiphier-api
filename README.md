@@ -30,6 +30,5 @@ Based on the CQRS specification.
 * https://oauth2.thephpleague.com/
 * https://www.thinktocode.com/2018/10/18/league-oauth-2-0-server-with-symfony-introduction/
 
-
 -----------
 CustomerWay.fr (c) 2018
