@@ -26,6 +26,3 @@ framework:
             app.cache.api_token:
                 adapter: cache.app
                 default_lifetime: 3600
-
-        # APCu (not recommended with heavy random-write workloads as memory fragmentation can cause perf issues)
-        #app: cache.adapter.apcu
