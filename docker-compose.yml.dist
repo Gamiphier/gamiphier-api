@@ -9,6 +9,8 @@ services:
             - ./api-command/cache:/var/www/cache
         depends_on:
             - rabbitmq
+        environment:
+            MAP_WWW_UID: /var/www
 
     api-query:
         container_name: api-query
@@ -18,6 +20,8 @@ services:
             - ./api-query/cache:/var/www/cache
         depends_on:
             - rabbitmq
+        environment:
+            MAP_WWW_UID: /var/www
 
     redis:
         container_name: redis
@@ -26,15 +30,15 @@ services:
     mongo:
         container_name: mongo
         image: "mongo:4"
- 
+
     nginx:
         container_name: nginx
         image: gamiphier/nginx:v1.0
-        ports: 
+        ports:
             - "80:80"
-        networks: 
+        networks:
             default:
-                aliases: 
+                aliases:
                     - "dev.api-command.gamiphier.fr"
                     - "dev.api-query.gamiphier.fr"
                     - "localhost"
