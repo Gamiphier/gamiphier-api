@@ -1,14 +1,16 @@
 <?php
-
 namespace App\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\Routing\Annotation\Route;
+use FOS\RestBundle\Controller\FOSRestController;
+use Symfony\Component\HttpFoundation\JsonResponse;
+use FOS\RestBundle\Controller\Annotations;
 
-class UsersController extends AbstractController
+class UsersController  extends FOSRestController
 {
     /**
-     * @Route("/users", name="users")
+     * @Annotations\Get(
+     *     path="/users", name="users"
+     * )
      */
     public function index()
     {
