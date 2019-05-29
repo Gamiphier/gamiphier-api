@@ -2,11 +2,9 @@
 
 namespace App\Entity;
 
-use ApiPlatform\Core\Annotation\ApiResource;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ApiResource()
  * @ORM\Entity(repositoryClass="App\Repository\UserRepository")
  */
 class User
@@ -23,6 +21,11 @@ class User
      */
     private $name;
 
+    /**
+     * @ORM\Column(type="string")
+     */
+    private $uuid;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -38,5 +41,17 @@ class User
     public function getName(): ?string
     {
         return $this->name;
+    }
+
+    public function getUuid()
+    {
+        return $this->uuid;
+    }
+
+    public function setUuid($uuid)
+    {
+        $this->uuid = $uuid;
+
+        return $this;
     }
 }

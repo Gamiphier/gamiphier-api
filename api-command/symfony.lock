@@ -2,18 +2,6 @@
     "alcaeus/mongo-php-adapter": {
         "version": "1.1.5"
     },
-    "api-platform/api-pack": {
-        "version": "1.1.0"
-    },
-    "api-platform/core": {
-        "version": "2.1",
-        "recipe": {
-            "repo": "github.com/symfony/recipes",
-            "branch": "master",
-            "version": "2.1",
-            "ref": "18727d8f229306860b46955f438e1897421da689"
-        }
-    },
     "composer/ca-bundle": {
         "version": "1.1.2"
     },
@@ -218,9 +206,6 @@
             "ref": "e9c58bfc414cfb7f06e8e5ae9f589868498f5d6a"
         }
     },
-    "symfony/asset": {
-        "version": "v4.1.7"
-    },
     "symfony/cache": {
         "version": "v4.1.4"
     },
@@ -250,9 +235,6 @@
     },
     "symfony/event-dispatcher": {
         "version": "v4.1.4"
-    },
-    "symfony/expression-language": {
-        "version": "v4.1.7"
     },
     "symfony/filesystem": {
         "version": "v4.1.4"
@@ -348,7 +330,10 @@
         "version": "v1.9.0"
     },
     "symfony/process": {
-        "version": "v4.1.6"
+        "version": "v4.1.7"
+    },
+    "symfony/profiler-pack": {
+        "version": "v1.0.3"
     },
     "symfony/property-access": {
         "version": "v4.1.6"
@@ -417,6 +402,18 @@
             "branch": "master",
             "version": "4.1",
             "ref": "0cdc982334f45d554957a6167e030482795bf9d7"
+        }
+    },
+    "symfony/var-dumper": {
+        "version": "v4.1.7"
+    },
+    "symfony/web-profiler-bundle": {
+        "version": "3.3",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "master",
+            "version": "3.3",
+            "ref": "6bdfa1a95f6b2e677ab985cd1af2eae35d62e0f6"
         }
     },
     "symfony/yaml": {
